@@ -20,13 +20,13 @@ import utilities.Utilities;
 
 public class UserMenu extends BasePage{
 	
-	//private WebDriver driver;
+	private WebDriver driver;
 
 	public UserMenu(WebDriver driver, ExtentTest test) {
 	
 			PageFactory.initElements(driver, this);
 			this.test=test;
-			//this.driver =driver;
+			this.driver =driver;
 	}
 
 	@FindBy(xpath="//span[@id='userNavLabel']")
@@ -109,6 +109,27 @@ public class UserMenu extends BasePage{
 	
 	@FindBy(xpath ="(//input[@name='auto_bcc'])[2]")
 	public WebElement nobtn;
+	
+	
+	@FindBy(xpath = "//a[@class='setupSection']/following::div[29]")
+	public WebElement calender1;
+	
+	@FindBy(xpath="//a[@class='setupSection']/following::div[29]/child::div/child::div[2]/child::a/child::span")
+	public WebElement calender2;
+	
+	@FindBy(xpath="//input[@value='Open a Test Reminder']")
+	public WebElement reminder;
+	
+	@FindBy(xpath="//input[@id='ids0']")
+	public WebElement reminder2;
+	
+	@FindBy(xpath="//input[@value='Dismiss All']")
+	public WebElement dismiss;
+	
+	//devconsole
+	
+	@FindBy(xpath = "//*[@title='Developer Console (New Window)']")
+	public WebElement devConsole;
 	
 	
 	
@@ -314,7 +335,58 @@ public class UserMenu extends BasePage{
 		
 	}
 	
+	public boolean calenderReminder(WebDriver driver) throws InterruptedException {
+		
+		boolean calenderReminder = false;
+		
+		if(Utilities.waitForElement(driver, calender1)) {
+			calender1.click();
+			Thread.sleep(5000);
+			if(Utilities.waitForElement(driver, calender2)) {
+				calender2.click();
+				reminder.click();
+			
+			Thread.sleep(5000);
+			String parenthandle = driver.getWindowHandle();
+			System.out.println(parenthandle);
+			Thread.sleep(5000);
+			
+		ArrayList<String> handles = new ArrayList<String>(driver.getWindowHandles());
+		for(String handle:handles) {
+			System.out.println(handles);
+		}
+		driver.switchTo().window(handles.get(0));
+		
+		Utilities.waitForElement(driver, dismiss);
+			}
+	//	reminder2.click();
+		dismiss.click();
+		
+		
+		
+	}
+		return false;
 		}
 	
 	
+	
+	public boolean devConsole(WebDriver driver) {
+		boolean isdevwindowopen = false;
+		if(Utilities.waitForElement(driver, devConsole)) {
+			logger.info("devConsole() : dev console clicked ");
+			devConsole.click();
+			ArrayList<String> handles = new ArrayList<String>(driver.getWindowHandles());
+			for(String handle:handles) {
+				System.out.println(handles);
+			}
+			driver.switchTo().window(handles.get(1));
+			driver.close();
+			isdevwindowopen=true;
+			logger.info("dev console passed");
+		}
+		
+		return isdevwindowopen;
+	}
+	
+}
 

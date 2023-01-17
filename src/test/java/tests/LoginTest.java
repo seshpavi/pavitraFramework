@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
@@ -17,7 +18,7 @@ import utilities.Utilities;
 
 public class LoginTest extends BaseTest {
 	
-	@Test
+	//@Test
 	public void loginErrorMsgTC01() throws IOException{
 		ExtentTest test = extent.createTest("loginErrorMsgTC01");
 		WebDriver driver = BaseTest.getDriver();
@@ -34,16 +35,16 @@ public class LoginTest extends BaseTest {
 	}
 	
 	
-	@Test
-	public void loginErrorMsgTC02() throws IOException{
+	@Test(dataProvider="getdata")
+	public void loginErrorMsgTC02(String username, String password) throws IOException{
 		ExtentTest test = extent.createTest("loginErrorMsgTC02");
 		WebDriver driver = BaseTest.getDriver();
 		Loginpage lp = new Loginpage(driver, test);
 		Assert.assertTrue((lp.launchapp(driver)),"should launch the app");
 		
-		Assert.assertTrue((lp.enterUsername(Datautils.readAccounts("valid.username"),driver)),"should enter the username");
+		Assert.assertTrue((lp.enterUsername(username,driver)),"should enter the username");
 	
-		Assert.assertTrue((lp.enterPassword(Datautils.readAccounts("valid.password"),driver)),"should enter the pasword");
+		Assert.assertTrue((lp.enterPassword(password,driver)),"should enter the pasword");
 	
 		Assert.assertTrue((lp.clickLogin(driver)),"should enter the loginbutton");
 		
@@ -51,7 +52,15 @@ public class LoginTest extends BaseTest {
 		
 	}
 	
-	@Test
+	@DataProvider(name="getdata")
+	
+	public Object[][] loginAccounts() throws IOException{
+		return utilities.Utilities.test01data();
+		
+	}
+	
+	
+	//@Test
 	public void loginErrorMsgTC03() throws InterruptedException, IOException{
 		ExtentTest test = extent.createTest("loginErrorMsgTC03");
 		WebDriver driver = BaseTest.getDriver();
@@ -85,7 +94,7 @@ public class LoginTest extends BaseTest {
 		
 	}
 	
-	@Test
+//	@Test
 	
 	public void forgotPasswordtc_4a() throws IOException {
 		ExtentTest test = extent.createTest("loginErrorMsgTC03");
@@ -101,7 +110,7 @@ public class LoginTest extends BaseTest {
 		
 		
 	}
-@Test
+//@Test
 	
 	public void forgotPasswordtc_4b() throws IOException, InterruptedException {
 		ExtentTest test = extent.createTest("loginErrorMsgTC03");

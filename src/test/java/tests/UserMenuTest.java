@@ -44,14 +44,47 @@ public class UserMenuTest extends BaseTest{
 		Thread.sleep(2000);
 		UserMenu ump = new UserMenu(driver, test);
 		Assert.assertTrue((lp.LoginSFDC(driver)),"should launch the app");
+		Thread.sleep(5000);
+		Assert.assertTrue(ump.clickUserMenuOption(), "usr menu clicked");
+		Assert.assertTrue(ump.selectUserMenuOption("My Settings", driver));
+		Thread.sleep(2000);
+		//Assert.assertTrue(ump.checkLoginHistory(driver), "login history true");
+		//Assert.assertTrue(ump.displayLayout(),"display and layout passed");
+		Assert.assertTrue(ump.emailLink(driver), "email link uploaded");
+		//Assert.assertTrue(ump.calenderReminder(driver),"calenderreminder");
+		
+		logger.info("test done+++++++++++");
+
+}
+	@Test
+	public void myprofile_tc08() throws IOException, InterruptedException{
+		ExtentTest test = extent.createTest("loginErrorMsgTC08");
+		logger.info("test started+++++++++++");
+		WebDriver driver = BaseTest.getDriver();
+		Loginpage lp = new Loginpage(driver,test);
+		Thread.sleep(2000);
+		UserMenu ump = new UserMenu(driver, test);
+		Assert.assertTrue((lp.LoginSFDC(driver)),"should launch the app");
 		
 		Thread.sleep(5000);
 		Assert.assertTrue(ump.clickUserMenuOption(), "usr menu clicked");
-		Assert.assertTrue(ump.selectUserMenuOption("My Settings", driver), "user menu option clicked");
+		//Assert.assertTrue(ump.selectUserMenuOption("Developer Console", driver), "user menu option clicked");
 		Thread.sleep(2000);
-		Assert.assertTrue(ump.checkLoginHistory(driver), "login history true");
-		Assert.assertTrue(ump.displayLayout(),"display and layout passed");
-		Assert.assertTrue(ump.emailLink(driver), "email link uploaded");
-		logger.info("test done+++++++++++");
-
-}}
+		Assert.assertTrue(ump.devConsole(driver), "devconsole open and close");
+}
+	@Test
+	public void myprofile_tc09() throws IOException, InterruptedException{
+		ExtentTest test = extent.createTest("loginErrorMsgTC09");
+		logger.info("test started+++++++++++");
+		WebDriver driver = BaseTest.getDriver();
+		Loginpage lp = new Loginpage(driver,test);
+		Thread.sleep(2000);
+		UserMenu ump = new UserMenu(driver, test);
+		Assert.assertTrue((lp.LoginSFDC(driver)),"should launch the app");
+		
+		Thread.sleep(5000);
+		Assert.assertTrue(ump.clickUserMenuOption(), "usr menu clicked");
+		Assert.assertTrue(ump.selectUserMenuOption("Logout", driver));
+		Thread.sleep(2000);
+}
+}

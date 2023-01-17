@@ -1,33 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
+<testng-results ignored="2" total="3" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-04T20:16:52 PST" name="Default suite" finished-at="2023-01-04T20:17:35 PST" duration-ms="42114">
+  <suite started-at="2023-01-08T00:28:39 PST" name="Default suite" finished-at="2023-01-08T00:29:14 PST" duration-ms="35056">
     <groups>
     </groups>
-    <test started-at="2023-01-04T20:16:52 PST" name="Default test" finished-at="2023-01-04T20:17:35 PST" duration-ms="42114">
-      <class name="tests.UserMenuTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.UserMenuTest@63dd899]" started-at="2023-01-04T20:16:52 PST" name="setUp" finished-at="2023-01-04T20:16:52 PST" duration-ms="390" status="PASS">
+    <test started-at="2023-01-08T00:28:39 PST" name="Default test" finished-at="2023-01-08T00:29:14 PST" duration-ms="35056">
+      <class name="tests.CreateAccountsTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.CreateAccountsTest@59d2400d]" started-at="2023-01-08T00:28:39 PST" name="setUp" finished-at="2023-01-08T00:28:39 PST" duration-ms="501" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="setDriver()[pri:0, instance:tests.UserMenuTest@63dd899]" started-at="2023-01-04T20:16:52 PST" name="setDriver" finished-at="2023-01-04T20:16:57 PST" duration-ms="4997" status="PASS">
+        <test-method is-config="true" signature="setDriver()[pri:0, instance:tests.CreateAccountsTest@59d2400d]" started-at="2023-01-08T00:28:39 PST" name="setDriver" finished-at="2023-01-08T00:28:44 PST" duration-ms="5238" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setDriver -->
-        <test-method signature="myprofile_tc07()[pri:0, instance:tests.UserMenuTest@63dd899]" started-at="2023-01-04T20:16:57 PST" name="myprofile_tc07" finished-at="2023-01-04T20:17:34 PST" duration-ms="36433" status="PASS">
+        <test-method signature="myprofile_tc012()[pri:0, instance:tests.CreateAccountsTest@59d2400d]" started-at="2023-01-08T00:28:44 PST" name="myprofile_tc012" finished-at="2023-01-08T00:29:14 PST" duration-ms="29206" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[createeditview link expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: createeditview link expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at tests.CreateAccountsTest.myprofile_tc012(CreateAccountsTest.java:50)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- myprofile_tc07 -->
-        <test-method is-config="true" signature="removeDriver()[pri:0, instance:tests.UserMenuTest@63dd899]" started-at="2023-01-04T20:17:34 PST" name="removeDriver" finished-at="2023-01-04T20:17:35 PST" duration-ms="630" status="PASS">
+        </test-method> <!-- myprofile_tc012 -->
+        <test-method is-config="true" signature="removeDriver()[pri:0, instance:tests.CreateAccountsTest@59d2400d]" started-at="2023-01-08T00:29:14 PST" name="removeDriver" finished-at="2023-01-08T00:29:14 PST" duration-ms="561" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- removeDriver -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.UserMenuTest@63dd899]" started-at="2023-01-04T20:17:35 PST" name="tearDown" finished-at="2023-01-04T20:17:35 PST" duration-ms="709" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.CreateAccountsTest@59d2400d]" started-at="2023-01-08T00:29:14 PST" name="tearDown" finished-at="2023-01-08T00:29:15 PST" duration-ms="788" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- tests.UserMenuTest -->
+      </class> <!-- tests.CreateAccountsTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
